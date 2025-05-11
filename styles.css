@@ -1,0 +1,11 @@
+.dropdown {
+  width: 40%;
+}
+
+.visible {
+  visibility: visible;
+}
+
+.invisible {
+  visibility: hidden;
+}
