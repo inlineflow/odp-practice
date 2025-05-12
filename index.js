@@ -1,39 +1,26 @@
-// const email = document.getElementById("mail");
-// const form = document.querySelector("form");
-// const emailError = document.querySelector("#mail + span.error");
+const form = document.querySelector("form");
+// const inputs = form.querySelectorAll("input");
 
-// email.addEventListener("input", () => {
-//   if (email.validity.valid) {
-//     emailError.textContent = "";
-//     emailError.className = "error";
-//   } else {
-//     showError();
-//   }
-// });
+form.addEventListener("input", (event) => {
+  const validations = getValidations();
+  const id = event.target.getAttribute("id");
 
-// form.addEventListener("input", (event) => {
-//   if (!email.validity.valid) {
-//     showError();
-//     event.preventDefault();
-//   }
-// });
+  const validation = validations[id];
+  const error = validation(event.target.value);
+  const errorField = document.querySelector(`#${id} + span.error`);
+  errorField.textContent = error;
+  errorField.classList.remove("invisible");
+  console.log(error);
+});
 
-// function showError() {
-//   const addText = function () {
-//     if (email.validity.valueMissing) {
-//       emailError.textContent = "You need to enter an email address.";
-//       return;
-//     }
-//     if (email.validity.typeMismatch) {
-//       emailError.textContent = "Entered value needs to be an email address.";
-//       return;
-//     }
-//     if (email.validity.tooShort) {
-//       emailError.textContent = `Email should be at least ${email.minLength} characters; you entered ${email.value.length}.`;
-//       return;
-//     }
-//   };
+// inputs.forEach((i) => console.log(i.getAttribute("id")));
+// map of validations => map id to validation => run validation => store results in a map id => error => pipe error to span if exists, return if not
 
-//   addText();
-//   emailError.className = "error active";
-// }
+function getValidations() {
+  const validations = {
+    email: (value) => {
+      return value;
+    },
+  };
+  return validations;
+}
