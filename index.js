@@ -107,4 +107,6 @@ function validatePassword() {
     processError(passwordConfErrorField, error);
     return error;
   }
+
+  return "";
 }
