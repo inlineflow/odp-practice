@@ -59,7 +59,7 @@ input:focus:invalid {
 /* error message styles */
 .error {
   width: 100%;
-  padding: 0;
+  padding: 0.2rem;
 
   font-size: 80%;
   color: white;
@@ -75,4 +75,5 @@ input:focus:invalid {
 
 .input-box {
   display: flex;
+  gap: 0.5rem;
 }

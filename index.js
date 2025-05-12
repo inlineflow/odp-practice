@@ -1,5 +1,4 @@
 const form = document.querySelector("form");
-// const inputs = form.querySelectorAll("input");
 
 form.addEventListener("input", (event) => {
   const validations = getValidations();
@@ -8,9 +7,7 @@ form.addEventListener("input", (event) => {
   const validation = validations[id];
   const error = validation(event.target.value);
   const errorField = document.querySelector(`#${id} + span.error`);
-  errorField.textContent = error;
-  errorField.classList.remove("invisible");
-  console.log(error);
+  processError(errorField, error);
 });
 
 // inputs.forEach((i) => console.log(i.getAttribute("id")));
@@ -19,8 +16,24 @@ form.addEventListener("input", (event) => {
 function getValidations() {
   const validations = {
     email: (value) => {
-      return value;
+      //   const regex = /^.*@.*\..*$/;
+      const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      return regex.test(value)
+        ? ""
+        : "Please provide a valid email address, example : example@gmail.com";
+      //   return value;
     },
   };
   return validations;
+}
+
+function processError(field, error) {
+  if (error === "") {
+    field.textContent = "";
+    field.classList.add("invisible");
+    return;
+  }
+
+  field.textContent = error;
+  field.classList.remove("invisible");
 }
