@@ -1,5 +1,13 @@
 const form = document.querySelector("form");
 
+form.addEventListener("submit", (event) => {
+  const errors = form.querySelectorAll("span.error.active");
+  if (errors.length > 0) {
+    event.preventDefault();
+    return;
+  }
+});
+
 form.addEventListener("input", (event) => {
   const validations = getValidations();
   const elementId = event.target.getAttribute("id");
@@ -47,15 +55,17 @@ function getValidations() {
   return validations;
 }
 
-function processError(field, error) {
+function processError(errorField, error) {
   if (error === "") {
-    field.textContent = "";
-    field.classList.add("invisible");
+    errorField.textContent = "";
+    errorField.classList.add("inactive");
+    errorField.classList.remove("active");
     return;
   }
 
-  field.textContent = error;
-  field.classList.remove("invisible");
+  errorField.textContent = error;
+  errorField.classList.remove("inactive");
+  errorField.classList.add("active");
 }
 
 function parseId(id) {
