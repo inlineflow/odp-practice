@@ -1,7 +1,64 @@
-<form>
-  <label for="mail">
-    I would like you to provide me with an email address:
-  </label>
-  <input type="email" id="mail" name="mail" />
-  <button>Submit</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Validation</title>
+    <script src="index.js" type="module" defer></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <form novalidate>
+      <div class="form-field">
+        <label for="email">
+          <span>Email:</span>
+          <div class="input-box">
+            <input type="email" name="email" id="email" />
+            <span class="error invisible" aria-live="polite"></span>
+          </div>
+        </label>
+      </div>
+      <div class="form-field">
+        <label for="country">
+          <span>Country:</span>
+          <div class="input-box">
+            <input type="text" name="country" id="country" />
+            <span class="error invisible" aria-live="polite"></span>
+          </div>
+        </label>
+      </div>
+      <div class="form-field">
+        <label for="postal-code">
+          <span>Postal Code:</span>
+          <div class="input-box">
+            <input type="number" name="postal-code" id="postal-code" />
+            <span class="error invisible" aria-live="polite"></span>
+          </div>
+        </label>
+      </div>
+      <div class="form-field">
+        <label for="password">
+          <span>Password:</span>
+          <div class="input-box">
+            <input type="password" name="password" id="password" />
+            <span class="error invisible" aria-live="polite"></span>
+          </div>
+        </label>
+      </div>
+      <div class="form-field">
+        <label for="password-confirmation">
+          <span>Password Confirmation:</span>
+          <div class="input-box">
+            <input
+              type="password"
+              name="password-confirmation"
+              id="password-confirmation"
+            />
+            <span class="error invisible" aria-live="polite"></span>
+          </div>
+        </label>
+      </div>
+      <button>Submit</button>
+    </form>
+  </body>
+</html>
