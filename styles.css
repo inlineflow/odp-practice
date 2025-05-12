@@ -10,6 +10,18 @@
   visibility: hidden;
 }
 
+form {
+  margin: 3rem;
+  padding: 2rem;
+  border: 2px solid rgb(62, 115, 231);
+  border-radius: 10px;
+  width: 200%;
+}
+
+.form-field {
+  padding-bottom: 1rem;
+}
+
 body {
   font: 1em sans-serif;
   width: 200px;
@@ -21,10 +33,10 @@ p * {
   display: block;
 }
 
-input[type="email"] {
+input {
   appearance: none;
 
-  width: 100%;
+  /* width: 100%; */
   border: 1px solid #333;
   margin: 0;
 
@@ -63,8 +75,4 @@ input:focus:invalid {
 
 .input-box {
   display: flex;
-}
-
-.invisible {
-  visibility: hidden;
 }
